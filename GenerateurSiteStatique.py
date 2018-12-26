@@ -21,8 +21,17 @@ print(fichiers_markdown)
 
 for index,fichiers in enumerate(fichiers_markdown):
     with fichiers_markdown[index].open() as mon_fichier_md:
+        c=''
+        r=''
+        for ligne in mon_fichier_md:
+            c+=markdown2.markdown(ligne)
+        with open("/home/antoine/Bureau/template.html","r") as template:
+            for ligne in template:
+                if "REPLACE ME" in ligne:
+                    r+=ligne.replace("REPLACE ME",c)
+                else:
+                    r+=ligne
         chemin_fichiers_html=args.o+'fichier_test'+str(index)+'.html'
         with open(chemin_fichiers_html,"w") as mon_fichier_html:
-            for ligne in mon_fichier_md:
-                mon_fichier_html.write(markdown2.markdown(ligne))
+            mon_fichier_html.write(r)
                 
