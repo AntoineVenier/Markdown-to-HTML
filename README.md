@@ -38,3 +38,5 @@ for ligne in mon_fichier_md:
 ## Exemple de page HTML generée par le programme
 
 ![](/images_readme/exemple.png)
+
+NB : Vous pouvez tester le programme en utilisant les fichiers markdown qui se trouvent dans le dossier Fichiers_Markdown.
